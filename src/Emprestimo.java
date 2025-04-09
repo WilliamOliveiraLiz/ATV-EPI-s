@@ -30,7 +30,9 @@ public class Emprestimo {
             String epi = input.nextLine();
             System.out.println("Data do empréstimo (dd/mm/aaaa): ");
             String data = input.nextLine();
-            String registro = nome+" - "+epi+" - "+data;
+            System.out.println("Data para a devoluçao: ");
+            String dataDevolver = input.nextLine();
+            String registro = nome+" - "+epi+" - "+data+" - "+dataDevolver;
             BancoDados.registro.add(registro);
             System.out.println("Emp´rstimo realizado com sucesso!");
     }
