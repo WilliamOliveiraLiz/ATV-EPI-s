@@ -1,7 +1,5 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 public class Devolucao {
-    static ArrayList<String> devolucao = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
 
     public static void menu(){
@@ -33,13 +31,13 @@ public class Devolucao {
         System.out.println("Data de devolução (dd/mm/aaaa): ");
         String data = input.nextLine();
         String registro = nome + " - "+ epi +" - "+data;
-        devolucao.add(registro);
+        BancoDados.registro.add(registro);
         System.out.println("Devolução registrada com sucesso! ");
     }
     static void listar(){
         System.out.println("\n--- Lista de devolução ---");
-        for (int i = 0; i < devolucao.size(); i++){
-            System.out.println(i+" - "+devolucao.get(i));
+        for (int i = 0; i < BancoDados.registro.size(); i++){
+            System.out.println(i+" - "+BancoDados.registro.get(i));
         }
     }
     static void atualizar(){
@@ -47,7 +45,7 @@ public class Devolucao {
         System.out.println("Informe o índice de devolução a ser atualizado: ");
         int index = input.nextInt();
         input.nextLine();
-        if (index >= 0 && index < devolucao.size()){
+        if (index >= 0 && index < BancoDados.registro.size()){
             System.out.println("Novo nome do funcionário: ");
             String nome= input.nextLine();
             System.out.println("Novo EPI devolvido: ");
@@ -55,7 +53,7 @@ public class Devolucao {
             System.out.println("Nova data de devolução (dd/mm/aaaa): ");
             String data = input.nextLine();
             String novoRegistro = nome+" - "+epi+" - "+data;
-            devolucao.set(index,novoRegistro);
+            BancoDados.registro.set(index,novoRegistro);
             System.out.println("Devolução atualizada!");
         }else {
             System.out.println("Índice invalido!");
@@ -66,8 +64,8 @@ public class Devolucao {
         System.out.println("INforme o índice a ser removido: ");
         int index = input.nextInt();
         input.nextLine();
-        if (index >= 0 && index<devolucao.size()){
-            devolucao.remove(index);
+        if (index >= 0 && index<BancoDados.registro.size()){
+            BancoDados.registro.remove(index);
             System.out.println("Devolução removida!");
         }else {
             System.out.println("Índice inválido");

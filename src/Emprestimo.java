@@ -1,7 +1,6 @@
 import java.util.Scanner;
-import java.util.ArrayList;
+
 public class Emprestimo {
-    static ArrayList<String> emprestimos = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
     public static void menu(){
         int opcao;
@@ -32,13 +31,13 @@ public class Emprestimo {
             System.out.println("Data do empréstimo (dd/mm/aaaa): ");
             String data = input.nextLine();
             String registro = nome+" - "+epi+" - "+data;
-            emprestimos.add(registro);
+            BancoDados.registro.add(registro);
             System.out.println("Emp´rstimo realizado com sucesso!");
     }
     static void listar() {
         System.out.println("\n--- Lista de Empréstimos ---");
-        for (int i = 0; i < emprestimos.size(); i++){
-            System.out.println(i+" - "+ emprestimos.get(i));
+        for (int i = 0; i < BancoDados.registro.size(); i++){
+            System.out.println(i+" - "+ BancoDados.registro.get(i));
         }
     }
     static void atualizar(){
@@ -46,7 +45,7 @@ public class Emprestimo {
         System.out.println("digite o índice a ser atualizado: ");
         int index = input.nextInt();
         input.nextLine();
-        if (index >= 0 && index < emprestimos.size()){
+        if (index >= 0 && index < BancoDados.registro.size()){
             System.out.println("Novo nome do funcionário: ");
             String nome = input.nextLine();
             System.out.println("Novo EPI emprestado: ");
@@ -54,7 +53,7 @@ public class Emprestimo {
             System.out.println("Nova data de empréstimo: ");
             String data = input.nextLine();
             String novoRegistro = nome +" - "+epi+" - "+data;
-            emprestimos.set(index,novoRegistro);
+            BancoDados.registro.set(index,novoRegistro);
             System.out.println("Empréstimo atualizado! ");
         }else {
             System.out.println("Índice inválido! ");
@@ -65,8 +64,8 @@ public class Emprestimo {
         System.out.println("Informe o índice a ser removido.");
         int index = input.nextInt();
         input.nextLine();
-        if (index >= 0 && index < emprestimos.size()){
-            emprestimos.remove(index);
+        if (index >= 0 && index < BancoDados.registro.size()){
+            BancoDados.registro.remove(index);
             System.out.println("Empréstimo removido.");
         }else {
             System.out.println("Índice inválido.");

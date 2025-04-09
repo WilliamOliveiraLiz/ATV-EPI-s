@@ -1,7 +1,5 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 public class EPI {
-    static ArrayList<String> epis=new ArrayList<>();
     static Scanner input = new Scanner(System.in);
     public static void menu(){
         int opcao;
@@ -28,13 +26,13 @@ public class EPI {
     static void cadastrarEPI(){
         System.out.println("Digite o nome do EPI: ");
         String nome = input.nextLine();
-        epis.add(nome);
+        BancoDados.registro.add(nome);
         System.out.println("EPI cadastrado com sucesso!");
     }
     static void listarEPIs(){
         System.out.println("\n---Lista de EPIs---");
-        for (int i = 0; i < epis.size(); i++){
-            System.out.println(i+"-"+epis.get(i));
+        for (int i = 0; i < BancoDados.registro.size(); i++){
+            System.out.println(i+"-"+BancoDados.registro.get(i));
         }
     }
     static void atualizarEPI(){
@@ -42,10 +40,10 @@ public class EPI {
         System.out.println("Digite índice do EPI a ser atualizado:");
         int index = input.nextInt();
         input.nextLine();
-        if (index >= 0 && index < epis.size()){
+        if (index >= 0 && index < BancoDados.registro.size()){
             System.out.println("Digite o novo nome: ");
             String novoNome = input.nextLine();
-            epis.set(index,novoNome);
+            BancoDados.registro.set(index,novoNome);
             System.out.println("EPI atualizado!");
         }else{
             System.out.println("Índice inválido!");
@@ -56,8 +54,8 @@ public class EPI {
         System.out.println("Digite o índice do EPI a ser removido: ");
         int index = input.nextInt();
         input.nextLine();
-        if (index >= 0 && index< epis.size()){
-            epis.remove(index);
+        if (index >= 0 && index< BancoDados.registro.size()){
+            BancoDados.registro.remove(index);
             System.out.println("EPI Removido! ");
         }else{
             System.out.println("Índice invalido!");
